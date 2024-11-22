@@ -10,6 +10,12 @@ struct Node
 
 class Deque
 {
+    /*
+    How we wanna the deque to appear:
+
+    front -> [15 | prev: nullptr | next: 10] <-> [10 | prev: 15 | next: 9] <-> [9 | prev: 10 | next: 30] <-> [30 | prev: 9 | next: nullptr] <- rear
+
+    */
     Node *front;
     Node *rear;
 
