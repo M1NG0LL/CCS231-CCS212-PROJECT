@@ -62,6 +62,13 @@ int main() {
     int choice, value;
     bool running = true;
 
+sfq.push(21);
+sfq.push(51);
+sfq.push(69);
+sfq.push(7);
+sfq.push(1);
+sfq.push(12);
+
     while (running) {
         cout << "\nMenu:\n";
         cout << "1. Push\n";
