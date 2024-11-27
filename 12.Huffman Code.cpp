@@ -81,6 +81,7 @@ cout<<"encoded string"<<encoded<<endl;
 int main()
 {
     string text="hello world";
+    cout<<text<<endl;
     huffmancodeing(text);
     return 0;
 }
