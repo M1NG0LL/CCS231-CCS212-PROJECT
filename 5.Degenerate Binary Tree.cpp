@@ -35,6 +35,39 @@ public:
         current->right = new Node(value);
     }
 
+    void Delete(int value)
+    {
+        if (!root)
+            return;
+
+        if (root->data == value)
+        {
+            Node *temp = root;
+            root = root->right;
+            delete temp;
+            return;
+        }
+
+        Node *current = root;
+        Node *previous = nullptr;
+
+        while (current && current->data != value)
+        {
+            previous = current;
+            current = current->right;
+        }
+
+        if (current == nullptr)
+        {
+            cout << "Node with value " << value << " not found." << endl;
+            return;
+        }
+
+        previous->right = current->right;
+
+        delete current;
+    }
+
     void display()
     {
         Print_Tree(root, 0);
@@ -113,5 +146,13 @@ int main()
 
     cout << "Post-order Traversal: ";
     tree.Postorder(tree.GetRoot());
+    cout << endl;
+
+    cout << "Deleting node with value 4...\n";
+    tree.Delete(3);
+    cout << endl;
+
+    cout << "Full Binary Tree (ASCII Representation) after deletion:\n";
+    tree.display();
     cout << endl;
 }

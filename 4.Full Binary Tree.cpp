@@ -54,6 +54,39 @@ public:
         }
     }
 
+    void Delete(int value)
+    {
+        if (!root)
+            return;
+
+        queue<Node *> q;
+        q.push(root);
+
+        Node *node_to_delete = nullptr;
+        Node *deepNode = nullptr;
+
+        while (!q.empty())
+        {
+            deepNode = q.front();
+            q.pop();
+
+            if (deepNode->data == value)
+                node_to_delete = deepNode;
+
+            if (deepNode->left)
+                q.push(deepNode->left);
+            if (deepNode->right)
+                q.push(deepNode->right);
+        }
+
+        if (node_to_delete != nullptr)
+        {
+            node_to_delete->data = deepNode->data;
+
+            delete deepNode;
+        }
+    }
+
     void display()
     {
         Print_Tree(root, 0);
@@ -139,5 +172,13 @@ int main()
 
     cout << "Post-order Traversal: ";
     tree.Postorder(tree.GetRoot());
+    cout << endl;
+
+    cout << "Deleting node with value 4...\n";
+    tree.Delete(4);
+    cout << endl;
+
+    cout << "Full Binary Tree (ASCII Representation) after deletion:\n";
+    tree.display();
     cout << endl;
 }
