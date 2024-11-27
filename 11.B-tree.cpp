@@ -288,64 +288,26 @@ void Btreenode::splitchild(int i, Btreenode* child) {
 }
 
 int main() {
-    Btree tree(3); // Minimum degree is 3
-    int choice, value;
-    bool running = true, treeHasKeys = false;
-
-    while (running) {
-        cout << "\nMenu:\n";
-        cout << "1. Insert\n";
-        cout << "2. Delete \n";
-        cout << "3. Search\n";
-        cout << "4. Display\n";
-        cout << "5. Exit\n";
-        cout << "Enter your choice: ";
-        cin >> choice;
-
-        switch (choice) {
-        case 1:
-            cout << "Enter the value to insert: ";
-            cin >> value;
-            tree.insert(value);
-            treeHasKeys = true;
-            cout << "Value inserted.\n";
-            break;
-
-        
-case 2:
-    cout << "Enter the value you want to delete: ";
-    cin >> value;
-    tree.Delete(value);
-    cout << "Deleted " << value;
-    break;
-
-        case 3:
-            if (!treeHasKeys) {
-                cout << "Tree is empty.\n";
-            } else {
-                cout << "Enter the value to search: ";
-                cin >> value;
-                if (tree.search(value) != nullptr)
-                    cout << "Key " << value << " is found.\n";
-                else
-                    cout << "Key " << value << " is not found.\n";
-            }
-            break;
-
-        case 4:
-            cout << "Tree traversal:\n";
-            tree.traverse();
-            break;
-
-        case 5:
-            cout << "Exiting...\n";
-            running = false;
-            break;
-
-        default:
-            cout << "Invalid input. Try again.\n";
-        }
-    }
-
-    return 0;
+ Btree tree(3);
+tree.insert(10);
+tree.insert(20);
+tree.insert(5);
+tree.insert(6);
+tree.insert(12);
+tree.insert(30);
+tree.insert(7);
+tree.insert(17);
+cout<<"the travesrse:\n";
+tree.traverse();
+int key=6;
+if(tree.search(key)!=nullptr)   
+cout<<"key:"<<key<<"found in tree\n";
+else
+{
+    cout<<"key:"<<key<<"not found in tree\n";
+}
+tree.Delete(5);
+cout <<"traverseal after deleting 5\n";
+tree.traverse();
+ return 0;
 }
