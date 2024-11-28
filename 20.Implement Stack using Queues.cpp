@@ -2,16 +2,19 @@
 #include <queue>
 using namespace std;
 
-class stackfromQ {
+class stackfromQ
+{
 private:
     queue<int> q1, q2;
 
 public:
     // Push an element onto the stack
-    void push(int x) {
+    void push(int x)
+    {
         q2.push(x);
 
-        while (!q1.empty()) {
+        while (!q1.empty())
+        {
             q2.push(q1.front());
             q1.pop();
         }
@@ -19,8 +22,10 @@ public:
     }
 
     // Remove the top element
-    void pop() {
-        if (q1.empty()) {
+    void pop()
+    {
+        if (q1.empty())
+        {
             cout << "Stack is underflow\n";
             return;
         }
@@ -28,8 +33,10 @@ public:
     }
 
     // Get the top element
-    int top() {
-        if (q1.empty()) {
+    int top()
+    {
+        if (q1.empty())
+        {
             cout << "Stack is empty\n";
             return -1;
         }
@@ -37,19 +44,23 @@ public:
     }
 
     // Check if the stack is empty
-    bool empty() {
+    bool empty()
+    {
         return q1.empty();
     }
 
     // Display the elements of the stack
-    void display() {
-        if (q1.empty()) {
+    void display()
+    {
+        if (q1.empty())
+        {
             cout << "Stack is empty\n";
             return;
         }
         queue<int> temp = q1;
         cout << "Stack elements: ";
-        while (!temp.empty()) {
+        while (!temp.empty())
+        {
             cout << temp.front() << " ";
             temp.pop();
         }
@@ -57,12 +68,21 @@ public:
     }
 };
 
-int main() {
+int main()
+{
     stackfromQ sfq;
     int choice, value;
     bool running = true;
 
-    while (running) {
+    sfq.push(21);
+    sfq.push(51);
+    sfq.push(69);
+    sfq.push(7);
+    sfq.push(1);
+    sfq.push(12);
+
+    while (running)
+    {
         cout << "\nMenu:\n";
         cout << "1. Push\n";
         cout << "2. Pop\n";
@@ -71,7 +91,8 @@ int main() {
         cout << "Enter your choice: ";
         cin >> choice;
 
-        switch (choice) {
+        switch (choice)
+        {
         case 1:
             cout << "Enter the value you want to push: ";
             cin >> value;
