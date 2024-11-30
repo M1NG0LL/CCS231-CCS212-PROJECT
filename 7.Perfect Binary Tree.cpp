@@ -54,29 +54,51 @@ public:
         q.push(root);
 
         Node *node_to_delete = nullptr;
-        Node *deepnode = nullptr;
+        Node *deepNode = nullptr;
+        Node *parentOfDeepNode = nullptr;
 
         while (!q.empty())
         {
-            deepnode = q.front();
+            deepNode = q.front();
             q.pop();
 
-            if (deepnode->data == value)
-            {
-                node_to_delete = deepnode;
-            }
+            if (deepNode->data == value)
+                node_to_delete = deepNode;
 
-            if (deepnode->left)
-                q.push(deepnode->left);
-            if (deepnode->right)
-                q.push(deepnode->right);
+            if (deepNode->left)
+            {
+                parentOfDeepNode = deepNode;
+                q.push(deepNode->left);
+            }
+            if (deepNode->right)
+            {
+                parentOfDeepNode = deepNode;
+                q.push(deepNode->right);
+            }
         }
 
         if (node_to_delete != nullptr)
         {
-            node_to_delete->data = deepnode->data;
+            node_to_delete->data = deepNode->data;
 
-            delete deepnode;
+            if (parentOfDeepNode != nullptr)
+            {
+                if (parentOfDeepNode->left == deepNode)
+                {
+                    parentOfDeepNode->left = nullptr;
+                }
+                else
+                {
+                    parentOfDeepNode->right = nullptr;
+                }
+            }
+
+            if (deepNode == root)
+            {
+                root = nullptr;
+            }
+
+            delete deepNode;
         }
     }
 
