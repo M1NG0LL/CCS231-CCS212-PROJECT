@@ -4,12 +4,12 @@
 #include <stdexcept>
 using namespace std;
 
-bool IsOperator(char c)
+bool IsOperator(char c) // O(1)
 {
     return c == '+' || c == '-' || c == '*' || c == '/' || c == '^';
 }
 
-double Calc(double num1, double num2, char op)
+double Calc(double num1, double num2, char op) // O(1)
 {
     switch (op)
     {
@@ -32,7 +32,7 @@ double Calc(double num1, double num2, char op)
     }
 }
 
-double Evaluate_Postfix(string postfix)
+double Evaluate_Postfix(string postfix) // O(N)
 {
     stack<double> s;
     int i = 0, len = postfix.size();
@@ -84,7 +84,7 @@ double Evaluate_Postfix(string postfix)
     return s.top();
 }
 
-int main()
+int main() // O(N)
 {
     string postfix_single = "6 2 3 + - 3 8 2 / + *";
     string postfix_multi = "56 34 + 23 12 - * 2 /";
@@ -111,3 +111,5 @@ int main()
 
     return 0;
 }
+
+// So the time Complexity of main is O(N)

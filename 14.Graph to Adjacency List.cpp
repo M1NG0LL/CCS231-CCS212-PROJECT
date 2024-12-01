@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-void Graph_to_list(vector<vector<int>> graph)
+void Graph_to_list(vector<vector<int>> graph) // O(N²)
 {
     int graph_size = graph.size();
 
@@ -18,7 +18,7 @@ void Graph_to_list(vector<vector<int>> graph)
     }
 }
 
-int main()
+int main() // O(N²)
 {
     int nodes = 6;
 
@@ -33,3 +33,5 @@ int main()
 
     Graph_to_list(graph);
 }
+
+// So the time Complexity of main is O(N²)

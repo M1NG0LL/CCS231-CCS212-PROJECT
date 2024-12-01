@@ -21,7 +21,7 @@ class Red_Black_Tree
     Node *root, *TNULL;
 
 protected:
-    void initializeTNULL()
+    void initializeTNULL() // O(1)
     {
         TNULL = new Node(0);
         TNULL->color = BLACK;
@@ -29,7 +29,7 @@ protected:
         TNULL->right = nullptr;
     }
 
-    void LeftRotation(Node *x)
+    void LeftRotation(Node *x) // O(1)
     {
         Node *y = x->left;
         x->right = y->left;
@@ -65,7 +65,7 @@ protected:
         thereby rebalancing the tree to preserve its properties and ensure efficient operations such as search, insert, and delete
     */
 
-    void RightRotation(Node *x)
+    void RightRotation(Node *x) // O(1)
     {
         Node *y = x->right;
         x->left = y->right;
@@ -94,7 +94,7 @@ protected:
     }
     // Same as leftRotation but changing directions
 
-    void insertfix(Node *k)
+    void insertfix(Node *k) // O(log N)
     {
         Node *u;
 
@@ -165,7 +165,7 @@ protected:
            the fix could involve simply recoloring nodes if the uncle is red or performing rotations if the uncle is black.
     */
 
-    void DeleteFix(Node *x)
+    void DeleteFix(Node *x) // O(log N)
     {
         Node *s;
 
@@ -256,7 +256,7 @@ protected:
                 ensuring efficient performance for future operations.
     */
 
-    void transplant(Node *u, Node *v)
+    void transplant(Node *u, Node *v) // O(1)
     {
         if (u->parent == nullptr)
         {
@@ -273,7 +273,7 @@ protected:
         v->parent = u->parent;
     }
 
-    Node *minimum(Node *node)
+    Node *minimum(Node *node) // O(N)
     {
         while (node->left != TNULL)
         {
@@ -282,7 +282,7 @@ protected:
         return node;
     }
 
-    void Print_Tree(Node *node, int space, int level = 6)
+    void Print_Tree(Node *node, int space, int level = 6) // O(N)
     {
         if (node == TNULL)
             return;
@@ -301,7 +301,7 @@ protected:
         Print_Tree(node->left, space);
     }
 
-    void inOrderHelper(Node *node)
+    void inOrderHelper(Node *node) // O(N)
     {
         if (node == TNULL)
             return;
@@ -314,13 +314,13 @@ protected:
     }
 
 public:
-    Red_Black_Tree()
+    Red_Black_Tree() // O(1)
     {
         initializeTNULL();
         root = TNULL;
     }
 
-    void insert(int value)
+    void insert(int value) // O(Log N)
     {
         Node *node = new Node(value);
         node->parent = nullptr;
@@ -378,7 +378,7 @@ public:
         ...
     */
 
-    void Delete(int key)
+    void Delete(int key) // O(log N)
     {
         Node *z = root;
         Node *x, *y;
@@ -454,12 +454,12 @@ public:
                  This meticulous process ensures the red-black tree remains balanced, preserving its ability to perform insertions, deletions, and searches efficiently.
     */
 
-    void display()
+    void display() // O(N)
     {
         Print_Tree(root, 0);
     }
 
-    void inOrder()
+    void inOrder() // O(N)
     {
         cout << "In-order traversal: ";
         inOrderHelper(root);
@@ -467,7 +467,7 @@ public:
     }
 };
 
-int main()
+int main() // O(N)
 {
     Red_Black_Tree rbt;
 
@@ -489,3 +489,5 @@ int main()
 
     return 0;
 }
+
+// So the time Complexity of main is O(N)

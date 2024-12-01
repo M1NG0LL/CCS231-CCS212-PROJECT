@@ -15,9 +15,9 @@ class Degenerate_Binary_Tree
     Node *root;
 
 public:
-    Degenerate_Binary_Tree() : root(nullptr) {}
+    Degenerate_Binary_Tree() : root(nullptr) {} // O(1)
 
-    void insert(int value)
+    void insert(int value) // O(N)
     {
         if (!root)
         {
@@ -35,7 +35,7 @@ public:
         current->right = new Node(value);
     }
 
-    void Delete(int value)
+    void Delete(int value) // O(N)
     {
         if (!root)
             return;
@@ -68,12 +68,12 @@ public:
         delete current;
     }
 
-    void display()
+    void display() // O(N)
     {
         Print_Tree(root, 0);
     }
 
-    void Print_Tree(Node *node, int space, int level = 6)
+    void Print_Tree(Node *node, int space, int level = 6) // O(N)
     {
         if (!node)
             return;
@@ -90,7 +90,7 @@ public:
         cout << node->data << "\n";
     }
 
-    void Inorder(Node *root)
+    void Inorder(Node *root) // O(N)
     {
         if (root)
         {
@@ -99,7 +99,7 @@ public:
         }
     }
 
-    void Preorder(Node *root)
+    void Preorder(Node *root) // O(N)
     {
         if (root)
         {
@@ -108,7 +108,7 @@ public:
         }
     }
 
-    void Postorder(Node *root)
+    void Postorder(Node *root) // O(N)
     {
         if (root)
         {
@@ -117,13 +117,13 @@ public:
         }
     }
 
-    Node *GetRoot()
+    Node *GetRoot() // O(1)
     {
         return root;
     }
 };
 
-int main()
+int main() // O(N)
 {
     Degenerate_Binary_Tree tree;
 
@@ -156,3 +156,5 @@ int main()
     tree.display();
     cout << endl;
 }
+
+// So the time Complexity of main is O(N)

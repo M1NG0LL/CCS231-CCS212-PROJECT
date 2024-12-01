@@ -13,9 +13,9 @@ class Priority_Queue
     Node *head;
 
 public:
-    Priority_Queue() : head(nullptr) {}
+    Priority_Queue() : head(nullptr) {} // O(1)
 
-    ~Priority_Queue()
+    ~Priority_Queue() // O(N)
     {
         while (head)
         {
@@ -25,12 +25,12 @@ public:
         }
     }
 
-    bool empty()
+    bool empty() // O(1)
     {
         return head == nullptr;
     }
 
-    void enqueue(int value, int priority)
+    void enqueue(int value, int priority) // O(N)
     {
         Node *newNode = new Node{value, priority, nullptr};
 
@@ -52,7 +52,7 @@ public:
         temp->next = newNode;
     }
 
-    void dequeue()
+    void dequeue() // O(1)
     {
         if (empty())
         {
@@ -65,7 +65,7 @@ public:
         delete temp;
     }
 
-    int top()
+    int top() // O(1)
     {
         if (empty())
         {
@@ -75,7 +75,7 @@ public:
         return head->data;
     }
 
-    void display()
+    void display() // O(N)
     {
         if (empty())
         {
@@ -94,7 +94,7 @@ public:
     }
 };
 
-int main()
+int main() // O(N)
 {
     Priority_Queue pq;
 
@@ -116,3 +116,5 @@ int main()
 
     return 0;
 }
+
+// So the time Complexity of main is O(N)

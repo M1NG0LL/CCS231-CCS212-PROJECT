@@ -20,9 +20,9 @@ class Deque
     Node *rear;
 
 public:
-    Deque() : front(nullptr), rear(nullptr) {};
+    Deque() : front(nullptr), rear(nullptr) {}; // O(1)
 
-    ~Deque()
+    ~Deque() // O(N)
     {
         while (front)
         {
@@ -32,12 +32,12 @@ public:
         }
     }
 
-    bool empty()
+    bool empty() // O(1)
     {
         return front == nullptr || rear == nullptr;
     }
 
-    int getFront()
+    int getFront() // O(1)
     {
         if (empty())
         {
@@ -48,7 +48,7 @@ public:
         return front->data;
     }
 
-    int getRear()
+    int getRear() // O(1)
     {
         if (empty())
         {
@@ -59,7 +59,7 @@ public:
         return rear->data;
     }
 
-    void display()
+    void display() // O(N)
     {
         if (empty())
         {
@@ -78,7 +78,7 @@ public:
         cout << endl;
     }
 
-    void pushFront(int data)
+    void pushFront(int data) // O(1)
     {
         Node *newNode = new Node{data, nullptr, nullptr};
 
@@ -94,7 +94,7 @@ public:
         }
     }
 
-    void popFront()
+    void popFront() // O(1)
     {
         if (empty())
         {
@@ -118,7 +118,7 @@ public:
         delete temp;
     }
 
-    void pushRear(int data)
+    void pushRear(int data) // O(1)
     {
         Node *newNode = new Node{data, nullptr, nullptr};
 
@@ -134,7 +134,7 @@ public:
         }
     }
 
-    void popRear()
+    void popRear() // O(1)
     {
         if (empty())
         {
@@ -157,27 +157,9 @@ public:
 
         delete temp;
     }
-
-    void display()
-    {
-        if (empty())
-        {
-            cout << "Deque is empty!" << endl;
-            return;
-        }
-
-        Node *temp = front;
-        cout << "Deque elements: ";
-        while (temp)
-        {
-            cout << temp->data << " ";
-            temp = temp->next;
-        }
-        cout << endl;
-    }
 };
 
-int main()
+int main() // O(N)
 {
     Deque dq;
 
@@ -202,3 +184,5 @@ int main()
 
     return 0;
 }
+
+// So the time Complexity of main is O(N)

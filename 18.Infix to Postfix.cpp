@@ -2,12 +2,12 @@
 #include <stack>
 using namespace std;
 
-bool IsOperator(char c)
+bool IsOperator(char c) // O(1)
 {
     return c == '+' || c == '-' || c == '*' || c == '/' || c == '^';
 }
 
-int Operator_Priority(char op)
+int Operator_Priority(char op) // O(1)
 {
     if (op == '+' || op == '-')
         return 1;
@@ -18,7 +18,7 @@ int Operator_Priority(char op)
     return 0;
 }
 
-string Infix_To_Postfix(string infix)
+string Infix_To_Postfix(string infix) // O(N)
 {
     string postfix;
     stack<char> s;
@@ -66,7 +66,7 @@ string Infix_To_Postfix(string infix)
     return postfix;
 }
 
-int main()
+int main() // O(N)
 {
     string infix = "a+b*(c^d-e)^(f+g*h)-i";
 
@@ -75,3 +75,5 @@ int main()
 
     return 0;
 }
+
+// So the time Complexity of main is O(N)

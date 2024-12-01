@@ -17,9 +17,9 @@ class Perfect_Binary_Tree
     Node *root;
 
 public:
-    Perfect_Binary_Tree() : root(nullptr) {}
+    Perfect_Binary_Tree() : root(nullptr) {} // O(1)
 
-    void insert(int value)
+    void insert(int value) // O(N)
     {
         if (!root)
         {
@@ -45,7 +45,7 @@ public:
         }
     }
 
-    void Delete(int value)
+    void Delete(int value) // O(N)
     {
         if (!root)
             return;
@@ -102,7 +102,7 @@ public:
         }
     }
 
-    void levelOrderTraversal()
+    void levelOrderTraversal() // O(N)
     {
         if (!root)
             return;
@@ -128,12 +128,12 @@ public:
         cout << endl;
     }
 
-    void display()
+    void display() // O(N)
     {
         Print_Tree(root, 0);
     }
 
-    void Print_Tree(Node *node, int space, int level = 6)
+    void Print_Tree(Node *node, int space, int level = 6) // O(N)
     {
         if (!node)
             return;
@@ -152,7 +152,7 @@ public:
         Print_Tree(node->left, space);
     }
 
-    bool isPerfectUtil(Node *node, int level, int height)
+    bool isPerfectUtil(Node *node, int level, int height) // O(N)
     {
         if (node == nullptr)
             return true;
@@ -168,7 +168,7 @@ public:
         return isPerfectUtil(node->left, level + 1, height) && isPerfectUtil(node->right, level + 1, height);
     }
 
-    bool isPerfect()
+    bool isPerfect() // O(N)
     {
         if (!root)
             return true;
@@ -178,7 +178,7 @@ public:
         return isPerfectUtil(root, 0, height);
     }
 
-    int calculateHeight(Node *node)
+    int calculateHeight(Node *node) // O(N)
     {
         int height = 0;
         while (node != nullptr)
@@ -189,13 +189,13 @@ public:
         return height;
     }
 
-    Node *GetRoot()
+    Node *GetRoot() // O(1)
     {
         return root;
     }
 };
 
-int main()
+int main() // O(N)
 {
     Perfect_Binary_Tree tree;
 
@@ -224,3 +224,5 @@ int main()
 
     cout << "Is the tree perfect after deletion? " << (tree.isPerfect() ? "Yes" : "No") << endl;
 }
+
+// So the time Complexity of main is O(N)

@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-void dfs(int node, vector<vector<int>> graph, vector<bool> visited)
+void dfs(int node, vector<vector<int>> graph, vector<bool> visited) // O(N)
 {
     visited[node] = true;
     cout << node << " ";
@@ -34,3 +34,5 @@ int main()
     cout << "DFS traversal starting from node 0: ";
     dfs(0, graph, visited);
 }
+
+// So the time Complexity of main is O(N)
